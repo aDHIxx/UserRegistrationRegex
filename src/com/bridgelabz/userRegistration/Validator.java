@@ -9,7 +9,8 @@ public class Validator implements UserValidator{
     private static final String NAME_PATTERN = "^[A-Z][a-zA-Z]{2,}$";
     private static final String EMAIL_PATTERN = "^[a-zA-Z0-9]+([._+-]?[a-zA-Z0-9]+)*@[a-zA-Z0-9]+\\.[a-zA-Z]{2,4}([.][a-zA-Z]{2,3})?$";
     private static final String MOBILE_PATTERN = "^[0-9]{2}[\\s][0-9]{10}$";
-    private static final String PASSWORD_PATTERN = "^[a-zA-Z0-9!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?]{8,}$";
+    private static final String PASSWORD_PATTERN = "^(?=.*[A-Z])[a-zA-Z0-9!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?]{8,}$";
+
 
     /*
      * @name: validate
