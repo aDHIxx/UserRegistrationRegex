@@ -1,6 +1,7 @@
 package com.bridgelabz.userRegistration;
 
 import java.util.regex.Pattern;
+import com.bridgelabz.userRegistration.CustomExceptionClass.*;
 /*
  * @name: Validator
  * @desc: class to validate user data
@@ -29,6 +30,24 @@ public class Validator implements UserValidator{
         } else {
             pattern = Pattern.compile(PASSWORD_PATTERN);
         }
-        return pattern.matcher(data).matches();
+
+        if (!pattern.matcher(data).matches()) {
+            throwExceptionBasedOnDataType(data);
+            return false;
+        }
+
+        return true;
+    }
+
+    private void throwExceptionBasedOnDataType(String data) {
+        if (data.matches(NAME_PATTERN)) {
+            throw new InvalidFirstNameException("Invalid First Name: " + data);
+        } else if (data.matches(EMAIL_PATTERN)) {
+            throw new InvalidEmailException("Invalid Email: " + data);
+        } else if (data.matches(MOBILE_PATTERN)) {
+            throw new InvalidMobileException("Invalid Mobile Number: " + data);
+        } else {
+            throw new InvalidPasswordException("Invalid Password: " + data);
+        }
     }
 }
