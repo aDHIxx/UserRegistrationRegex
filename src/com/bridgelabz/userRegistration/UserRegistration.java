@@ -6,7 +6,7 @@ package com.bridgelabz.userRegistration;
 public class UserRegistration {
     public static void main(String[] args) {
         Validator validator = new Validator();
-        User user = new User("Adhi", "Sree");
+        User user = new User("Adhi", "Sree","abc.xyz@bl.co.in","91 9919819801");
 
         if (validator.validate(user.getFirstName())) {
             System.out.println("First Name is valid");
@@ -21,11 +21,17 @@ public class UserRegistration {
         }
 
         // Adding email validation
-        String email = "abc.xyz@bl.co.in";
-        if (validator.validate(email)) {
+        if (validator.validate(user.getEmail())) {
             System.out.println("Email is valid");
         } else {
             System.out.println("Email is invalid");
+        }
+
+        // Adding mobile number validation
+        if (validator.validate(user.getMobileNumber())) {
+            System.out.println("Mobile Number is valid");
+        } else {
+            System.out.println("Mobile Number is invalid");
         }
     }
 }
