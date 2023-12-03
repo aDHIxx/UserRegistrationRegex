@@ -83,5 +83,16 @@ public class ValidatorJUnitTest {
         Validator lastNameValidator = new Validator();
         assertFalse(lastNameValidator.validate("doeSmith"));
     }
+    /*
+     * @name: testValidEmail
+     * @desc: method to test valid email
+     * @param: none
+     * @return: none
+     */
+    @Test
+    public void testValidEmail() {
+        Validator emailValidator = new Validator();
+        assertTrue(emailValidator.validate("abc.xyz@bl.co.in"));
+    }
 
 }
