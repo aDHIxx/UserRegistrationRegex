@@ -96,5 +96,163 @@ public class ValidatorJUnitTest {
         assertTrue(passwordValidator.validate("Adhi@123"));
     }
 
+    @Test
+    public void testValidEmail1() {
+        Validator emailValidator = new Validator();
+        assertTrue(emailValidator.validate("abc@yahoo.com"));
+    }
+
+    @Test
+    public void testValidEmail2() {
+        Validator emailValidator = new Validator();
+        assertTrue(emailValidator.validate("abc-100@yahoo.com"));
+    }
+
+    @Test
+    public void testValidEmail3() {
+        Validator emailValidator = new Validator();
+        assertTrue(emailValidator.validate("abc.100@yahoo.com"));
+    }
+
+    @Test
+    public void testValidEmail4() {
+        Validator emailValidator = new Validator();
+        assertTrue(emailValidator.validate("abc111@abc.com"));
+    }
+
+    @Test
+    public void testValidEmail5() {
+        Validator emailValidator = new Validator();
+        assertTrue(emailValidator.validate("abc-100@abc.net"));
+    }
+
+    @Test
+    public void testValidEmail6() {
+        Validator emailValidator = new Validator();
+        assertTrue(emailValidator.validate("abc.100@abc.com.au"));
+    }
+
+    @Test
+    public void testValidEmail7() {
+        Validator emailValidator = new Validator();
+        assertTrue(emailValidator.validate("abc@1.com"));
+    }
+
+    @Test
+    public void testValidEmail8() {
+        Validator emailValidator = new Validator();
+        assertTrue(emailValidator.validate("abc@gmail.com.com"));
+    }
+
+    @Test
+    public void testValidEmail9() {
+        Validator emailValidator = new Validator();
+        assertTrue(emailValidator.validate("abc+100@gmail.com"));
+    }
+
+    // Invalid emails
+    /*
+     * @name: testInvalidEmail1
+     * @desc: must contains “@” symbol
+     * @param: none
+     * @return: none
+     */
+    @Test
+    public void testInvalidEmail1() {
+        Validator emailValidator = new Validator();
+        assertFalse(emailValidator.validate("abc"));
+    }
+    /*
+     * @name: testInvalidEmail2
+     * @desc: can not start with dot “.”
+     * @param: none
+     * @return: none
+     */
+    @Test
+    public void testInvalidEmail2() {
+        Validator emailValidator = new Validator();
+        assertFalse(emailValidator.validate("abc@.com.my"));
+    }
+    /*
+     * @name: testInvalidEmail3
+     * @desc: “.a” is not a valid tld, last tld must contains at least two characters
+     * @param: none
+     * @return: none
+     */
+    @Test
+    public void testInvalidEmail3() {
+        Validator emailValidator = new Validator();
+        assertFalse(emailValidator.validate("abc123@gmail.a"));
+    }
+    /*
+     * @name: testInvalidEmail4
+     * @desc: tld can not start with dot “.”
+     * @param: none
+     * @return: none
+     */
+    @Test
+    public void testInvalidEmail4() {
+        Validator emailValidator = new Validator();
+        assertFalse(emailValidator.validate("abc123@.com"));
+    }
+    /*
+     * @name: testInvalidEmail5
+     * @desc: email’s 1st character can not start with “.”
+     * @param: none
+     * @return: none
+     */
+    @Test
+    public void testInvalidEmail5() {
+        Validator emailValidator = new Validator();
+        assertFalse(emailValidator.validate("abc123@.com.com"));
+    }
+
+    @Test
+    public void testInvalidEmail6() {
+        Validator emailValidator = new Validator();
+        assertFalse(emailValidator.validate(".abc@abc.com"));
+    }
+
+    @Test
+    public void testInvalidEmail7() {
+        Validator emailValidator = new Validator();
+        assertFalse(emailValidator.validate("abc()*@gmail.com"));
+    }
+
+    @Test
+    public void testInvalidEmail8() {
+        Validator emailValidator = new Validator();
+        assertFalse(emailValidator.validate("abc@%*.com"));
+    }
+
+    @Test
+    public void testInvalidEmail9() {
+        Validator emailValidator = new Validator();
+        assertFalse(emailValidator.validate("abc..2002@gmail.com"));
+    }
+
+    @Test
+    public void testInvalidEmail10() {
+        Validator emailValidator = new Validator();
+        assertFalse(emailValidator.validate("abc.@gmail.com"));
+    }
+
+    @Test
+    public void testInvalidEmail11() {
+        Validator emailValidator = new Validator();
+        assertFalse(emailValidator.validate("abc@abc@gmail.com"));
+    }
+
+    @Test
+    public void testInvalidEmail12() {
+        Validator emailValidator = new Validator();
+        assertFalse(emailValidator.validate("abc@gmail.com.1a"));
+    }
+
+    @Test
+    public void testInvalidEmail13() {
+        Validator emailValidator = new Validator();
+        assertFalse(emailValidator.validate("abc@gmail.com.aa.au"));
+    }
 
 }
