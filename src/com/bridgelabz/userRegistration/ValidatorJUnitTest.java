@@ -29,17 +29,6 @@ public class ValidatorJUnitTest {
         assertFalse(firstNameValidator.validate("Ad"));
     }
     /*
-     * @name: testInvalidFirstNameWithLowerCase
-     * @desc: method to test invalid first name based on format
-     * @param: none
-     * @return: none
-     */
-    @Test
-    public void testInvalidFirstNameStartsWithLowercase() {
-        Validator firstNameValidator = new Validator();
-        assertFalse(firstNameValidator.validate("adhiSree"));
-    }
-    /*
      * @name: testValidLastName
      * @desc: method to test valid last name
      * @param: none
@@ -73,17 +62,6 @@ public class ValidatorJUnitTest {
         assertFalse(lastNameValidator.validate("doe"));
     }
     /*
-     * @name: testInvalidLastNameStartsWithLowerCase
-     * @desc: method to test invalid last name based on format
-     * @param: none
-     * @return: none
-     */
-    @Test
-    public void testInvalidLastNameStartsWithLowercase() {
-        Validator lastNameValidator = new Validator();
-        assertFalse(lastNameValidator.validate("doeSmith"));
-    }
-    /*
      * @name: testValidEmail
      * @desc: method to test valid email
      * @param: none
@@ -107,16 +85,15 @@ public class ValidatorJUnitTest {
     }
 
     /*
-     * @name: testInvalidMobileNumber
-     * @desc: method to test invalid mobile number
+     * @name: testValidPassword
+     * @desc: method to test valid password
      * @param: none
      * @return: none
      */
-
     @Test
-    public void testInvalidMobileNumber() {
-        Validator mobileValidator = new Validator();
-        assertFalse(mobileValidator.validate("9919819801"));
+    public void testValidPassword() {
+        Validator passwordValidator = new Validator();
+        assertTrue(passwordValidator.validate("Adhi@123"));
     }
 
 

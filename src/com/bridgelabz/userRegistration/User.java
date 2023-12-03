@@ -9,6 +9,7 @@ class User {
     private String lastName;
     private String email;
     private String mobileNumber;
+    private String password;
 
     /*
      * @name: User
@@ -17,11 +18,12 @@ class User {
      * @param: lastName -> last name of user
      * @param: mobileNumber -> mobile number of user
      */
-    public User(String firstName, String lastName,String email, String mobileNumber) {
+    public User(String firstName, String lastName,String email, String mobileNumber, String password){
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.mobileNumber = mobileNumber;
+        this.password = password;
     }
 
     /*
@@ -86,5 +88,32 @@ class User {
     public String getEmail() {
         return email;
     }
+
+    /*
+     * @name: setEmail
+     * @desc: method to set email of user
+     * @param: email -> email of user
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    /*
+     * @name: getPassword
+     * @desc: method to get password of user
+     * @return: String -> password of user
+     */
+    public String getPassword() {
+        return password;
+    }
+
+    /*
+     * @name: setPassword
+     * @desc: method to set password of user
+     * @param: password -> password of user
+     */
+    public void setPassword(String password) {
+        this.password = password;}
+
 }
 
