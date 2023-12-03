@@ -1,6 +1,9 @@
 package com.bridgelabz.userRegistration;
 
+import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -253,6 +256,32 @@ public class ValidatorJUnitTest {
     public void testInvalidEmail13() {
         Validator emailValidator = new Validator();
         assertFalse(emailValidator.validate("abc@gmail.com.aa.au"));
+    }
+
+
+    private final Validator validator = new Validator();
+    /*
+     * @name: testValidEmails
+     * @desc: method to test valid emails
+     * @param: email -> emails to be tested
+     * @return: none
+     */
+    @ParameterizedTest
+    @ValueSource(strings = {"adhi@gmail.com", "adh-i@gmail.com", "adhi.100@gmail.com"})
+    void testValidEmails(String email) {
+        assertTrue(validator.validate(email));
+    }
+
+    /*
+     * @name: testInvalidEmails
+     * @desc: method to test invalid emails
+     * @param: email -> emails to be tested
+     * @return: none
+     */
+    @ParameterizedTest
+    @ValueSource(strings = {"adhi", "adhi@.com.my", "adhi123@gmail.a"})
+    void testInvalidEmails(String email) {
+        assertFalse(validator.validate(email));
     }
 
 }
