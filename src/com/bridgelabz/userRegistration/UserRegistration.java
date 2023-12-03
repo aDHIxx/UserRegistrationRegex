@@ -5,13 +5,19 @@ package com.bridgelabz.userRegistration;
  */
 public class UserRegistration {
     public static void main(String[] args) {
-        Validator firstNameValidator = new Validator();
-        User user = new User("Adhi");
+        Validator nameValidator = new Validator();
+        User user = new User("Adhi", "Sree");
 
-        if (firstNameValidator.validate(user.getFirstName())) {
+        if (nameValidator.validate(user.getFirstName())) {
             System.out.println("First Name is valid");
         } else {
             System.out.println("First Name is invalid");
+        }
+
+        if (nameValidator.validate(user.getLastName())) {
+            System.out.println("Last Name is valid");
+        } else {
+            System.out.println("Last Name is invalid");
         }
     }
 }

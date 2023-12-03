@@ -6,17 +6,17 @@ import java.util.regex.Pattern;
  * @desc: class to validate user data
  */
 public class Validator implements UserValidator{
-    private static final String FIRST_NAME_PATTERN = "^[A-Z][a-zA-Z]{2,}$";
+    private static final String NAME_PATTERN = "^[A-Z][a-zA-Z]{2,}$";
 
     /*
      * @name: validate
-     * @desc: method to validate first name
-     * @param: firstName -> first name to be validated
-     * @return: boolean -> true if first name is valid else false
+     * @desc: method to validate user data
+     * @param: name -> user data to be validated
+     * @return: boolean -> true if data is valid else false
      */
     @Override
-    public boolean validate(String firstName) {
-        Pattern pattern = Pattern.compile(FIRST_NAME_PATTERN);
-        return pattern.matcher(firstName).matches();
+    public boolean validate(String name) {
+        Pattern pattern = Pattern.compile(NAME_PATTERN);
+        return pattern.matcher(name).matches();
     }
 }

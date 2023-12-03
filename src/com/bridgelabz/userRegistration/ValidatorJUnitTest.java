@@ -18,8 +18,8 @@ public class ValidatorJUnitTest {
         assertTrue(firstNameValidator.validate("Adhi"));
     }
     /*
-     * @name: testInvalidFirstName
-     * @desc: method to test invalid first name
+     * @name: testInvalidFirstNameLength
+     * @desc: method to test invalid first name based on length
      * @param: none
      * @return: none
      */
@@ -29,8 +29,8 @@ public class ValidatorJUnitTest {
         assertFalse(firstNameValidator.validate("Ad"));
     }
     /*
-     * @name: testInvalidFirstName
-     * @desc: method to test invalid first name
+     * @name: testInvalidFirstNameWithLowerCase
+     * @desc: method to test invalid first name based on format
      * @param: none
      * @return: none
      */
@@ -38,6 +38,50 @@ public class ValidatorJUnitTest {
     public void testInvalidFirstNameStartsWithLowercase() {
         Validator firstNameValidator = new Validator();
         assertFalse(firstNameValidator.validate("adhiSree"));
+    }
+    /*
+     * @name: testValidLastName
+     * @desc: method to test valid last name
+     * @param: none
+     * @return: none
+     */
+    @Test
+    public void testValidLastName() {
+        Validator lastNameValidator = new Validator();
+        assertTrue(lastNameValidator.validate("Sree"));
+    }
+    /*
+     * @name: testInvalidLastNameLength
+     * @desc: method to test invalid last name based on length
+     * @param: none
+     * @return: none
+     */
+    @Test
+    public void testInvalidLastNameLength() {
+        Validator lastNameValidator = new Validator();
+        assertFalse(lastNameValidator.validate("Do"));
+    }
+    /*
+     * @name: testInvalidLastNameFormat
+     * @desc: method to test invalid last name based on format
+     * @param: none
+     * @return: none
+     */
+    @Test
+    public void testInvalidLastNameFormat() {
+        Validator lastNameValidator = new Validator();
+        assertFalse(lastNameValidator.validate("doe"));
+    }
+    /*
+     * @name: testInvalidLastNameStartsWithLowerCase
+     * @desc: method to test invalid last name based on format
+     * @param: none
+     * @return: none
+     */
+    @Test
+    public void testInvalidLastNameStartsWithLowercase() {
+        Validator lastNameValidator = new Validator();
+        assertFalse(lastNameValidator.validate("doeSmith"));
     }
 
 }
